@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<title>Sightseeing KI</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌍 Sightseeing Empfehlung KI</h1>
+
+<p>Beantworte ein paar Fragen und wir schlagen dir Sehenswürdigkeiten vor.</p>
+
+<label>Stadt</label>
+<input type="text" id="city" placeholder="z.B. Köln">
+
+<label>Welche Sehenswürdigkeiten haben dir bisher gefallen?</label>
+<input type="text" id="liked" placeholder="z.B. Louvre, Dom, Museum">
+
+<label>Wie viel Zeit hast du? (Stunden)</label>
+<input type="number" id="time">
+
+<label>Interessen (Komma getrennt)</label>
+<input type="text" id="interests" placeholder="museum, kirche, denkmal">
+
+<button onclick="recommend()">Empfehlungen berechnen</button>
+
+<h2>Empfohlene Sehenswürdigkeiten</h2>
+
+<div id="results"></div>
+
+</div>
+
+<script src="attractions.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
