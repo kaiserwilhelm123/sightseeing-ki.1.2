@@ -1,6 +1,6 @@
 function recommend(){
 
-let city = document.getElementById("city").value.toLowerCase();
+let city = document.getElementById("city").value.toLowerCase().trim();
 let liked = document.getElementById("liked").value.toLowerCase();
 let time = document.getElementById("time").value * 60;
 let interests = document.getElementById("interests").value.toLowerCase().split(",");
@@ -12,15 +12,17 @@ for(let place of attractions){
 
 if(place.city !== city) continue;
 
-let score = 0;
+let score = place.popularity;
 
-if(interests.includes(place.category))
+for(let interest of interests){
+if(place.category.includes(interest.trim())){
 score += 5;
+}
+}
 
-if(liked.includes(place.category))
+if(liked.includes(place.category)){
 score += 3;
-
-score += place.popularity;
+}
 
 results.push({...place, score});
 
@@ -30,6 +32,13 @@ results.sort((a,b)=>b.score-a.score);
 
 let output = document.getElementById("results");
 output.innerHTML="";
+
+if(results.length === 0){
+
+output.innerHTML = "<p>Keine passenden Sehenswürdigkeiten gefunden.</p>";
+return;
+
+}
 
 for(let place of results){
 
